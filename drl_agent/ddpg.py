@@ -1,0 +1,15 @@
+import numpy as np
+from .model import SimplePolicy
+
+class DDPGAgent:
+    def __init__(self):
+        self.policy = SimplePolicy()
+
+    def run(self, data):
+        results = []
+
+        for value in data:
+            action = self.policy.predict(value)
+            results.append(action)
+
+        return np.array(results)
