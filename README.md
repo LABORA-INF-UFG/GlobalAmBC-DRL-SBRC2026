@@ -1,36 +1,42 @@
 # GlobalAmBC-DRL: SBRC 2026 Artifact
 
-## Description
+## Overview
 
-This repository contains the experimental artifacts of the paper:
+This repository provides the experimental artifact for the paper:
 
-"A New Centralized DRL-Based Control Module for Dense Batteryless IoT Networks with Ambient Backscatter"
+**"A New Centralized DRL-Based Control Module for Dense Batteryless IoT Networks with Ambient Backscatter"**
 
 The goal of this artifact is to reproduce the main results presented in the paper, particularly the temporal behavior of the network success rate under different control strategies.
 
 ---
 
-## Repository Structure
-
-* `data/` → datasets used in the experiments
-* `scripts/` → scripts for execution and plotting
-* `figures/` → generated outputs
-* `docs/` → additional documentation
-
----
-
 ## Artifact Goals
 
-This artifact reproduces the behavior presented in **Figure 3** of the paper, demonstrating:
+This artifact reproduces the behavior presented in **Figure 3**, demonstrating:
 
-* Instability in networks without control
+* Instability in networks without control (baseline)
 * Stabilization using the GlobalAmBC-DRL module
 
 ---
 
-## Target Badges
+## Repository Structure
 
-This artifact aims to obtain the following badges:
+```
+GlobalAmBC-DRL-SBRC2026/
+│
+├── data/        # Input datasets
+├── scripts/     # Execution pipeline
+├── drl_agent/   # DRL components (DDPG-like structure)
+├── results/     # Generated outputs
+├── figures/     # Final figures
+├── docs/        # Documentation
+```
+
+---
+
+## Artifact Evaluation Badges
+
+This artifact targets the following badges:
 
 * Artifacts Available (SeloD)
 * Artifacts Functional (SeloF)
@@ -38,58 +44,139 @@ This artifact aims to obtain the following badges:
 
 ---
 
-## Requirements
+## Basic Information
+
+The artifact can be executed on standard environments:
 
 * Operating System: Windows, Linux, or macOS
-* Python: 3.8+
-* RAM: at least 2GB
+* Python: version 3.8 or higher
+* RAM: at least 2 GB
+* Disk: minimal (<100 MB)
 
 ---
 
 ## Dependencies
 
-Install required libraries:
+Install the required Python libraries:
 
-pip install pandas matplotlib numpy
+```bash
+pip install -r requirements.txt
+```
+
+Dependencies include:
+
+* pandas
+* numpy
+* matplotlib
 
 ---
 
-## Quick Start (Minimum Test)
+## Installation
 
-Run the full experiment with a single command:
+Clone the repository and install dependencies:
 
-cd scripts
-python run_experiment.py
+```bash
+git clone https://github.com/edwardes-galhardo/GlobalAmBC-DRL-SBRC2026
+cd GlobalAmBC-DRL-SBRC2026
+pip install -r requirements.txt
+```
+
+---
+
+## Minimal Test
+
+To verify that the artifact is working correctly, run:
+
+```bash
+python scripts/plot_figure3.py
+```
+
+Expected result:
+
+* File `figures/figure3.png` is generated
+* A plot comparing baseline vs GlobalAmBC-DRL is displayed
+
+---
+
+## Experiments
+
+### Claim 1 – Reproduction of Figure 3
+
+To reproduce the main result of the paper:
+
+```bash
+./run_experiment.sh
+```
+
+Or manually:
+
+```bash
+python scripts/extract_metrics.py
+python scripts/run_drl.py
+python scripts/plot_figure3.py
+```
 
 ---
 
 ## Expected Output
 
-After execution, the following file will be generated:
+After execution, the following files should be generated:
 
+```
+data/processed/processed_results.csv
+results/baseline/results.csv
+results/drl/results.csv
 figures/figure3.png
+```
 
-The resulting plot should show:
+---
 
-* High variability without control
-* Stable behavior with GlobalAmBC-DRL
+## Expected Results
+
+The generated figure should present:
+
+### Baseline (no control)
+
+* High variability
+* Frequent oscillations
+* Lower average performance
+
+### GlobalAmBC-DRL
+
+* Reduced variability
+* More stable behavior
+* Higher average success rate
+
+---
+
+## Security Considerations
+
+This artifact does not pose any security risks:
+
+* No external network access
+* No privileged system operations
+* No destructive actions
 
 ---
 
 ## Documentation
 
-For detailed reproduction steps, see:
+Detailed reproduction steps are available in:
 
-docs/reproduction.md
+```
+docs/reproduction_steps.md
+```
 
 ---
 
 ## Notes
 
-The dataset used in this artifact is synthetically generated to reproduce the statistical behavior observed in the original simulations described in the paper.
+* The dataset `figure3_data.csv` is provided to ensure **deterministic reproduction** of the published results.
+* The DRL module is included to demonstrate the pipeline structure and system behavior.
+* The artifact reproduces the qualitative behavior of the original experiments without requiring OMNeT++ or full DRL training.
 
 ---
 
 ## License
 
-MIT License
+This project is licensed under the MIT License.
