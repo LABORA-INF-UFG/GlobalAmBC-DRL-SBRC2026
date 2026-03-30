@@ -202,9 +202,10 @@ You may also cite this artifact as:
 @article{galhardo2026artifact,
   title={GlobalAmBC-DRL: A Reproducible Artifact for Dense Batteryless IoT Networks with Ambient Backscatter},
   author={Galhardo, Edwardes Amaro},
-  journal={GitHub Repository},
+  journal={Software/Artifact},
   year={2026},
-  url={https://github.com/LABORA-INF-UFG/GlobalAmBC-DRL-SBRC2026}
+  url={https://github.com/LABORA-INF-UFG/GlobalAmBC-DRL-SBRC2026},
+  note={Research artifact, publicly available repository}
 }
 ```
 
