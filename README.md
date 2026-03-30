@@ -38,9 +38,9 @@ GlobalAmBC-DRL-SBRC2026/
 
 This artifact targets the following badges:
 
-* Artifacts Available (SeloD)
-* Artifacts Functional (SeloF)
-* Results Reproduced (SeloR)
+- Artifacts Available (SeloD)
+- Artifacts Functional (SeloF)
+- Results Reproduced (SeloR)
 
 ---
 
@@ -48,10 +48,10 @@ This artifact targets the following badges:
 
 The artifact can be executed on standard environments:
 
-* Operating System: Windows, Linux, or macOS
-* Python: version 3.8 or higher
-* RAM: at least 2 GB
-* Disk: minimal (<100 MB)
+- Operating System: Windows, Linux, or macOS
+- Python: version 3.8 or higher
+- RAM: at least 2 GB
+- Disk: minimal (<100 MB)
 
 ---
 
@@ -65,9 +65,9 @@ pip install -r requirements.txt
 
 Dependencies include:
 
-* pandas
-* numpy
-* matplotlib
+- pandas
+- numpy
+- matplotlib
 
 ---
 
@@ -76,7 +76,7 @@ Dependencies include:
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/edwardes-galhardo/GlobalAmBC-DRL-SBRC2026
+git clone https://github.com/LABORA-INF-UFG/GlobalAmBC-DRL-SBRC2026
 cd GlobalAmBC-DRL-SBRC2026
 pip install -r requirements.txt
 ```
@@ -93,8 +93,8 @@ python scripts/plot_figure3.py
 
 Expected result:
 
-* File `figures/figure3.png` is generated
-* A plot comparing baseline vs GlobalAmBC-DRL is displayed
+- File `figures/figure3.png` is generated
+- A plot comparing baseline vs GlobalAmBC-DRL is displayed
 
 ---
 
@@ -137,15 +137,15 @@ The generated figure should present:
 
 ### Baseline (no control)
 
-* High variability
-* Frequent oscillations
-* Lower average performance
+- High variability
+- Frequent oscillations
+- Lower average performance
 
 ### GlobalAmBC-DRL
 
-* Reduced variability
-* More stable behavior
-* Higher average success rate
+- Reduced variability
+- More stable behavior
+- Higher average success rate
 
 ---
 
@@ -153,9 +153,9 @@ The generated figure should present:
 
 This artifact does not pose any security risks:
 
-* No external network access
-* No privileged system operations
-* No destructive actions
+- No external network access
+- No privileged system operations
+- No destructive actions
 
 ---
 
@@ -171,15 +171,41 @@ docs/reproduction_steps.md
 
 ## Notes
 
-* The dataset `figure3_data.csv` is provided to ensure **deterministic reproduction** of the published results.
-* The DRL module is included to demonstrate the pipeline structure and system behavior.
-* The artifact reproduces the qualitative behavior of the original experiments without requiring OMNeT++ or full DRL training.
+- The dataset `figure3_data.csv` is provided to ensure **deterministic reproduction** of the published results.
+- The DRL module is included to demonstrate the pipeline structure and system behavior.
+- The artifact reproduces the qualitative behavior of the original experiments without requiring OMNeT++ or full DRL training.
 
 ---
 
 ## Final Remarks
 
 This artifact was designed to ensure clarity, simplicity, and reproducibility, enabling reviewers to validate the main claims of the paper with minimal effort.
+
+---
+
+## Citation
+
+If you use this artifact, please cite the associated paper (original title in Portuguese):
+
+```bibtex
+@inproceedings{galhardo2026globalambc,
+  title={Um Novo Módulo Arquitetural de Controle Centralizado com DRL para Redes IoT Densas sem Bateria Baseadas em Retroespalhamento Ambiente},
+  author={Galhardo, Edwardes Amaro and Oliveira Junior, Antonio Carlos and Westphall, Carlos Becker},
+  booktitle={Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos (SBRC)},
+  year={2026}
+}
+```
+
+You may also cite this artifact as:
+
+```bibtex
+@misc{galhardo2026artifact,
+  title={GlobalAmBC-DRL: Reproducible Artifact for SBRC 2026},
+  author={Galhardo, Edwardes Amaro},
+  year={2026},
+  howpublished={\url{https://github.com/LABORA-INF-UFG/GlobalAmBC-DRL-SBRC2026}}
+}
+```
 
 ---
 
