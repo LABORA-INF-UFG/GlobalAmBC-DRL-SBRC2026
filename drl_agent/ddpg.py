@@ -1,3 +1,10 @@
+# ============================================================
+# NOTE:
+# This is a simplified DRL-inspired policy used only for
+# demonstration and reproducibility purposes.
+# It does NOT implement a full DDPG algorithm.
+# ============================================================
+
 import numpy as np
 from .model import SimplePolicy
 
