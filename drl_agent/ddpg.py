@@ -9,6 +9,12 @@ import numpy as np
 from .model import SimplePolicy
 
 class DDPGAgent:
+    """
+    Simplified DRL agent used to simulate adaptive control behavior.
+
+    This implementation does not represent a full DDPG algorithm,
+    but a lightweight approximation for demonstration purposes.
+    """
     def __init__(self):
         self.policy = SimplePolicy()
 
