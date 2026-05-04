@@ -40,7 +40,8 @@ This artifact targets the following badges:
 
 - Artifacts Available (SeloD)
 - Artifacts Functional (SeloF)
-- Results Reproduced (SeloR)
+- Artifacts Reproduced (SeloR)
+- Artifacts Sustainable (SeloS)
 
 ---
 
@@ -65,9 +66,9 @@ pip install -r requirements.txt
 
 Dependencies include:
 
-- pandas
-- numpy
-- matplotlib
+- pandas==2.0.3
+- numpy==1.24.4
+- matplotlib==3.7.2
 
 ---
 
@@ -115,6 +116,59 @@ python scripts/extract_metrics.py
 python scripts/run_drl.py
 python scripts/plot_figure3.py
 ```
+
+---
+
+## Reproduction Modes
+
+This artifact supports two modes of reproduction:
+
+### 1. Canonical Reproduction (Default)
+
+Uses the pre-processed dataset:
+
+```
+data/figure3_data.csv
+```
+
+This mode ensures **deterministic reproduction** of Figure 3 exactly as presented in the paper.
+
+---
+
+### 2. Pipeline-Based Reproduction
+
+Runs the full processing pipeline:
+
+```bash
+python scripts/extract_metrics.py
+python scripts/run_drl.py
+```
+
+This generates:
+
+```
+results/baseline/results.csv
+results/drl/results.csv
+```
+
+These results can also be used for plotting, demonstrating the workflow of the system.
+
+---
+
+### Mode Selection
+
+The script:
+
+```bash
+python scripts/plot_figure3.py
+```
+
+automatically selects:
+
+- Pipeline data (if available)
+- Otherwise, the canonical dataset
+
+This design ensures both reproducibility and demonstration of the processing pipeline.
 
 ---
 
@@ -171,9 +225,29 @@ docs/reproduction_steps.md
 
 ## Notes
 
-- The dataset `figure3_data.csv` is provided to ensure **deterministic reproduction** of the published results.
-- The DRL module is included to demonstrate the pipeline structure and system behavior.
-- The artifact reproduces the qualitative behavior of the original experiments without requiring OMNeT++ or full DRL training.
+- The dataset `data/figure3_data.csv` is provided as the **canonical dataset** to ensure deterministic and reproducible generation of Figure 3.
+
+- The pipeline scripts (`extract_metrics.py` and `run_drl.py`) demonstrate the workflow of the system and generate intermediate results.
+
+- The plotting script (`plot_figure3.py`) supports both:
+  - Direct reproduction from the canonical dataset
+  - Visualization using pipeline-generated results
+
+- The DRL module included in this artifact is a **simplified DRL-inspired policy**, designed for demonstration purposes only, and does not represent a full DDPG implementation.
+
+- This artifact reproduces the **qualitative behavior** of the original experiments without requiring OMNeT++ execution or full DRL training.
+
+---
+
+## Limitations
+
+- The DRL agent is a simplified implementation designed for demonstration and reproducibility purposes.
+
+- The artifact does not include a full OMNeT++ simulation environment.
+
+- The canonical dataset is used to ensure deterministic reproduction of results.
+
+- The pipeline demonstrates system behavior but is not intended to replicate the full experimental complexity of the original study.
 
 ---
 
@@ -185,7 +259,7 @@ This artifact was designed to ensure clarity, simplicity, and reproducibility, e
 
 ## Citation
 
-If you use this artifact, please cite the associated paper (original title in Portuguese):
+If you use this artifact, please cite the associated paper:
 
 ```bibtex
 @inproceedings{galhardo2026globalambc,
@@ -199,13 +273,12 @@ If you use this artifact, please cite the associated paper (original title in Po
 You may also cite this artifact as:
 
 ```bibtex
-@article{galhardo2026artifact,
-  title={GlobalAmBC-DRL: A Reproducible Artifact for Dense Batteryless IoT Networks with Ambient Backscatter},
+@misc{galhardo2026artifact,
+  title={GlobalAmBC-DRL: Reproducible Artifact for Dense Batteryless IoT Networks with Ambient Backscatter},
   author={Galhardo, Edwardes Amaro},
-  journal={Software/Artifact},
   year={2026},
-  url={https://github.com/LABORA-INF-UFG/GlobalAmBC-DRL-SBRC2026},
-  note={Research artifact, publicly available repository}
+  howpublished={\url{https://github.com/LABORA-INF-UFG/GlobalAmBC-DRL-SBRC2026}},
+  note={Public research artifact}
 }
 ```
 
